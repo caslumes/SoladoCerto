@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato SoladoCerto</title>
+    <link rel="stylesheet" href="paginadecontato.css"> 
+</head>
+<body>
+    <div class="main-content">
+        <div class="contact-section">
+            <h1>Fale com a nossa equipe</h1>
+            <form action="enviar_contato.php" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+
+            <div class="contact-info">
+                <h2>Nossos contatos</h2>
+                <p>Telefone: (11) 1234-5678</p>
+                <p>E-mail: contato@SoladoCerto.com.br</p>
+                <p>Endereço: Rua Ricardo Breno de Lucas Matheus, 789, Limeira, SP</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
