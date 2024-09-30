@@ -1,0 +1,110 @@
+#title {
+  background-color: darkblue;
+  color: white;
+  text-align: center;
+  size: 30px;
+  height: 75px;
+  width: 100%;
+  font-size: 60px;
+  font-family: fantasy;
+
+  a {
+    color: white;
+  }
+  a:link {
+    text-decoration: none;
+  }
+}
+
+nav {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(0, 88, 230);
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  height: 30px;
+  width: 100%;
+}
+nav li {
+  margin-right: 20px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.menusTopo {
+  a {
+    color: white;
+  }
+}
+
+body{
+    margin: 0;
+}
+
+
+.main-content {
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 100vh;
+    background-color: darkblue;
+    display: flex;
+    justify-content: center;
+    flex: auto;
+}
+
+.tituloperg {
+    color: darkblue;
+    text-align: center;
+}
+
+.faq-section{
+    width: 800px;
+    height: 600px;
+}
+
+.faq-section,  .support-section {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left; /
+   
+ 
+}
+
+.faqperg {
+    color: darkblue;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+}
+
+.faq-answer {
+    margin-top: 5px;
+    display: none;
+}
+
+details[open] .faq-answer {
+    display: block; 
+}
+
+.faq-link {
+    color: darkblue;
+    text-decoration: none;
+}
+
+.faq-link:hover {
+    text-decoration: underline;
+}
+
