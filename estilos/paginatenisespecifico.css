@@ -135,3 +135,23 @@ header h1 {
     background-color: #f9f9f9;
 }
 
+
+
+/* Para a seleção de tamanho */
+.selecionado {
+    background-color: rgb(0, 88, 230);
+    color: white;
+}
+
+@keyframes vibrate {
+    0% { transform: scale(1) translateX(0); }
+    25% { transform: scale(1.2) translateX(-5px); }
+    50% { transform: scale(1.2) translateX(5px); }
+    75% { transform: scale(1.2) translateX(-5px); }
+    100% { transform: scale(1) translateX(0); }
+}
+
+.vibrate {
+    animation: vibrate 0.5s ease-in-out;
+}
+
