@@ -56,17 +56,20 @@
   height: 738px;
 }
 .textoHUD {
-  display: flex;
+  display: inline-block;
   position: absolute;
-  padding-bottom: 350px;
-  padding-left: 220px;
-  transform: translate(-50%, -50%);
-  color: white;
+  margin-top: 700px;
+  margin-left: -350px;
+  padding: 2px 10px;
+  color: rgb(255, 255, 255);
   font-size: 24px;
+  -webkit-text-stroke: 1px black;
   font-weight: bold;
-  font-family: fantasy;
+  font-family: Arial;
+  border-radius: 15px;
   text-align: left;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  transform: translate(-50%, -50%);
   a {
     color: rgb(0, 0, 0);
   }
