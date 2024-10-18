@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', iniciarPagina);
 
 function iniciarPagina(){
+    iniciarHeader();
+    iniciarNav();
+    iniciarFooter();
+}
+
+function iniciarHeader(){
+    const header = document.getElementById('header-principal');
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+        header.innerHTML = data;
+    })
+}
+
+function iniciarNav(){
     const opcao_nav = document.getElementById('nav-principal');
     classe_nav = 'opcao-nav';
 
@@ -26,4 +41,13 @@ function iniciarOpcoesNav(link){
 function navegar(evento){
     evento.preventDefault();
     window.location.href = this.href;
+}
+
+function iniciarFooter(){
+    const footer = document.getElementById('footer-principal');
+    fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        footer.innerHTML = data;
+    })
 }
