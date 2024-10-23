@@ -12,6 +12,7 @@ function iniciarHeader(){
     .then(response => response.text())
     .then(data => {
         header.innerHTML = data;
+        iniciarFuncionalidadeCarrinho();
     })
 }
 
