@@ -53,6 +53,31 @@ h1{
     flex-direction: column;
     row-gap: 10px;
     box-shadow: 0 1px 5px rgb(160, 160, 160);
+    cursor: pointer;
+}
+
+.filtro p{
+    font-weight: bold;
+}
+
+.filtro li p{
+    font-weight: normal;
+}
+
+.submenu-filtro{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    display: none;
+}
+
+.submenu-filtro.active{
+    display: block;
+}
+
+.submenu-filtro li{
+    padding: 5px 0px 5px 0px;
 }
 
 .pesquisa-opcao, .selecao-ordenar{
@@ -65,6 +90,7 @@ h1{
 
 .pesquisa-opcao{
     border-color: rgb(160, 160, 160);
+    width: 100%;
 }
 
 .opcao-lista{
