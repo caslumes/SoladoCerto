@@ -44,6 +44,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 .contact-section button {
