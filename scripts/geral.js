@@ -8,7 +8,7 @@ function iniciarPagina(){
 
 function iniciarHeader(){
     const header = document.getElementById('header-principal');
-    fetch('header.html')
+    fetch('./header.php')
     .then(response => response.text())
     .then(data => {
         header.innerHTML = data;

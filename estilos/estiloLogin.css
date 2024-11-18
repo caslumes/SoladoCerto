@@ -72,7 +72,7 @@ label{
 
 input:focus~label, input:not(:placeholder-shown)~label{
     top: -3em;
-    color: red;
+    color: rgb(0, 88, 230);
     font-size: 15px;
 }
 
@@ -118,7 +118,7 @@ input:focus~label, input:not(:placeholder-shown)~label{
 .links{
     display: flex;
     justify-content: space-around;
-    padding: 0 4rem;
+    padding: 0 3rem;
     margin-top: 0.9rem;
     font-weight: bold;
 }

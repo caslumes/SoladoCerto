@@ -81,7 +81,7 @@ nav{
     column-gap: 30px;
 }
 
-.login{
+.login, .usuario{
     margin: 0;
     color: rgb(0, 88, 230);
     font-weight: bold;

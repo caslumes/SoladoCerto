@@ -11,7 +11,20 @@
 </section>
 
 <section class="secao-direita-header-principal">
-    <a class="login" href="">Entre ou cadastre-se</a>
+    <?php
+        if(isset($_SESSION['email'])){
+            $email = $_SESSION['email'];
+            $usuario = "SELECT nome FROM usuarios WHERE email = '$email'";
+            $nome = $usuario['nome'];
+            ?>
+            <p class="usuario">Olá, <?php echo $nome ?>!</p>
+            <?php
+        }else{
+            ?>
+            <a class="login" href="login.php">Entre ou cadastre-se</a>
+            <?php
+        }
+    ?>
     <a href="">
     <img class="imagem-carrinho" src="./imagens/header/carrinho.png" alt=""/>
     </a>
