@@ -18,16 +18,18 @@ function iniciarHeader(){
 
 function iniciarNav(){
     const opcao_nav = document.getElementById('nav-principal');
-    classe_nav = 'opcao-nav';
+    if(opcao_nav != null){
+        classe_nav = 'opcao-nav';
 
-    const links = [
-        { href: 'paginaprincipal.php', text: 'Página Principal', class: classe_nav},
-        { href: 'pesquisa.php', text: 'Catálogo', class: classe_nav},
-        { href: 'paginadeajuda.php', text: 'Ajuda', class: classe_nav},
-        { href: 'paginadecontato.php', text: 'Contato', class: classe_nav}
-    ];
+        const links = [
+            { href: 'paginaprincipal.php', text: 'Página Principal', class: classe_nav},
+            { href: 'pesquisa.php', text: 'Catálogo', class: classe_nav},
+            { href: 'paginadeajuda.php', text: 'Ajuda', class: classe_nav},
+            { href: 'paginadecontato.php', text: 'Contato', class: classe_nav}
+        ];
 
-    links.forEach(iniciarOpcoesNav, opcao_nav);
+        links.forEach(iniciarOpcoesNav, opcao_nav);
+    }
 }
 
 function iniciarOpcoesNav(link){
