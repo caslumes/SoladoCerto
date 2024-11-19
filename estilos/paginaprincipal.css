@@ -27,28 +27,27 @@ main {
   height: 738px;
   object-fit: cover;
 }
-.textoHUD {
-  display: inline-block;
-  position: absolute;
-  margin-top: 700px;
-  margin-left: -350px;
-  padding: 1px 10px;
-  color: rgb(255, 255, 255);
-  font-size: 24px;
-  -webkit-text-stroke: 2px black;
-  font-weight: bold;
-  font-family: monospace;
-  border-radius: 15px;
-  text-align: left;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  transform: translate(-50%, -50%);
-  a {
-    color: rgb(0, 0, 0);
-  }
-  a:link {
-    text-decoration: none;
-  }
+
+.container-imagem-meio{
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
 }
+
+.textoHUD {
+  margin: 0;
+  padding: 0 80px;
+  position: absolute;
+  background-color: white;
+  bottom: -175px;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid black;
+  box-shadow: 0 0 5px 5px rgba(0,0,0, 0.7);
+}
+
 #linkHUD {
   text-shadow: 2px 2px 4px rgb(219, 215, 215);
   font-family: monospace;

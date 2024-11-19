@@ -38,7 +38,7 @@
             class="imgHUD"
             id="imgHUD_LEFT"
           />
-          <div>
+          <div class="container-imagem-meio">
             <img
               src="./imagens/pagina_principal/Lebron15HUD.jpg"
               class="imgHUD"
@@ -66,7 +66,7 @@
           />
           <div class="paisagemTexto">
             <h2>
-              <a href="https://www.google.com.br"> TODOS OS TÊNIS -></a>
+              <a href="./pesquisa.php"> TODOS OS TÊNIS -></a>
             </h2>
           </div>
         </div>
