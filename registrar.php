@@ -6,7 +6,7 @@
         $sobrenome = $_POST['sobrenome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        $senha = md5($senha);
+        $senha = $senha = password_hash($senha, PASSWORD_DEFAULT);
 
         $verificarEmail = "SELECT * FROM usuarios WHERE email = '$email'";
         $rs = $mysqli->query($verificarEmail);
@@ -15,7 +15,7 @@
             echo "Endereço de E-mail já cadastrado!";
         }else{
             $inserir = "INSERT INTO usuarios(nome, sobrenome, email, senha)
-                        VALUES('$nome', '$sobrenome', '$email', '$senha'";
+                        VALUES('$nome', '$sobrenome', '$email', '$senha')";
             if($mysqli->query($inserir) == TRUE){
                 header("location: login.php");
             }else{
@@ -27,19 +27,22 @@
     if(isset($_POST['entrar'])){
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        $senha = md5($senha);
 
-        $verificarLogin = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'";
+        $verificarLogin = "SELECT * FROM usuarios WHERE email='$email'";
         $rs = $mysqli->query($verificarLogin);
 
         if($rs->num_rows > 0){
-            session_start();
             $linha = $rs->fetch_assoc();
-            $_SESSION['email'] = $row['email'];
-            header("location: pagina-principal.php");
-            exit();
+            if(password_verify($senha, $linha['senha'])){
+                session_start();
+                $_SESSION['email'] = $linha['email'];
+                header("location: pagina-principal.php");
+                exit();
+            }else{
+                echo "Senha incorreta!";
+            }
         }else{
-            echo "E-mail ou senha incorretos!";
+            echo "E-mail não cadastrado!";
         }
     }
 ?>

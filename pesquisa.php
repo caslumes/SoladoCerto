@@ -17,7 +17,7 @@
     <script src="scripts/pesquisa.js"></script>
     <link rel="stylesheet" href="./estilos/header.css">
     <link rel="stylesheet" href="./estilos/footer.css">
-    <link rel="stylesheet" href="./estilos/estilopesquisa.css">
+    <link rel="stylesheet" href="./estilos/pesquisa.css">
     <script src="./scripts/geral.js"></script>
 </head>
 <body>

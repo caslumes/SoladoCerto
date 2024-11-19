@@ -21,10 +21,10 @@ function iniciarNav(){
     classe_nav = 'opcao-nav';
 
     const links = [
-        { href: 'pagina-principal.html', text: 'Página Principal', class: classe_nav},
-        { href: 'pesquisa.html', text: 'Catálogo', class: classe_nav},
-        { href: 'paginadeajuda.html', text: 'Ajuda', class: classe_nav},
-        { href: 'paginadecontato.html', text: 'Contato', class: classe_nav}
+        { href: 'paginaprincipal.php', text: 'Página Principal', class: classe_nav},
+        { href: 'pesquisa.php', text: 'Catálogo', class: classe_nav},
+        { href: 'paginadeajuda.php', text: 'Ajuda', class: classe_nav},
+        { href: 'paginadecontato.php', text: 'Contato', class: classe_nav}
     ];
 
     links.forEach(iniciarOpcoesNav, opcao_nav);
