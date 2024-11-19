@@ -56,7 +56,7 @@
         </div>
       </section>
       <!-- Imagen Sessão 2 -->
-      <section>
+      <section style="margin-top: 100px; height: 450px;">
         <div>
           <img
             src="./imagens/pagina_principal/tenisCorridaPaisagem.webp"
@@ -64,11 +64,10 @@
             id="mosaicoHUDMAIN"
             alt="img2HUD"
           />
-          <div class="paisagemTexto">
-            <h2>
-              <a href="./pesquisa.php"> TODOS OS TÊNIS -></a>
-            </h2>
-          </div>
+          <a class="paisagemTexto" href="./pesquisa.php">
+            <h2>Todos os Tênis</h2>
+          </a>
+          
         </div>
       </section>
       <!-- Mosaico Tênis -->
@@ -87,14 +86,14 @@
           $imagem = $rsImg->fetch_assoc();
           ?>
 
-          <div>
+          <div class="containerProduto">
             <a href="paginatenisespecifico.php?codigo=<?php echo $codigoTenis ?>"
               ><img
                 src="<?php echo $imagem['urlImg'] ?>"
                 class="imagemTenis"
             /></a>
             <p class="tituloProduto"><?php echo $tenis['nome'] ?></p>
-            <p class="tituloProduto">R$<?php echo number_format($valorTenis, 2, ",", ".") ?></p>
+            <p class="precoProduto">R$<?php echo number_format($valorTenis, 2, ",", ".") ?></p>
           </div>
           <?php
       }

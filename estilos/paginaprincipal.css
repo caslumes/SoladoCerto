@@ -13,6 +13,11 @@ main {
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 /*Main HUD*/
 .hudInicial {
   display: flex;
@@ -62,8 +67,20 @@ main {
   flex-wrap: wrap;
   margin-top: 100px;
   margin-bottom: 100px;
-  text-align: center;
+  justify-content: center;
+  column-gap: 10px;
+  row-gap: 10px;
 }
+
+.containerProduto{
+  background-color: rgba(128, 128, 128, 0.4);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
 .imagemTenis {
   width: 350px;
   height: 350px;
@@ -75,8 +92,14 @@ main {
   transform: scale(1.25);
   z-index: 1;
 }
-.tituloProduto {
-  font-family: fantasy;
+
+.tituloProduto{
+  margin: 0;
+}
+
+.tituloProduto, .precoProduto{
+  font-size: 20px;
+  font-weight: bold;
 }
 
 body {
@@ -86,25 +109,19 @@ body {
 .img2HUD {
   width: 100%;
   height: 450px;
-  object-fit: contain;
+  object-fit: cover;
 }
 .paisagemTexto {
+  z-index: 1;
   display: flex;
-  position: absolute;
-  width: 200px;
-  transform: translate(50px, -150px);
+  position: relative;
+  top: -175px;
+  left: 50px;
+  max-width: 250px;
   background-color: white;
-  padding: 8px;
-  text-shadow: 2px 2px 4px rgb(219, 215, 215);
-  font-family: monospace;
-  font-size: 24 px;
+  padding: 0 20px;
+  font-size: 20px;
   text-align: center;
   border-radius: 30px;
-
-  a:link {
-    text-decoration: none;
-  }
-  a {
-    color: black;
-  }
+  box-shadow: 0 0 5px 4px rgba(0,0,0, 0.5);
 }
