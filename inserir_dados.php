@@ -1,4 +1,5 @@
 <?php
+    include("criar_db.php");
     include("conexao.php");
 
     $inserirDados = "
