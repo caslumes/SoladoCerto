@@ -17,7 +17,7 @@
             $inserir = "INSERT INTO usuarios(nome, sobrenome, email, senha)
                         VALUES('$nome', '$sobrenome', '$email', '$senha')";
             if($mysqli->query($inserir) == TRUE){
-                header("location: login.php");
+                header("location: paginalogin.php");
             }else{
                 echo "Erro: ".$mysqli->error;
             }
@@ -36,13 +36,13 @@
             if(password_verify($senha, $linha['senha'])){
                 session_start();
                 $_SESSION['email'] = $linha['email'];
-                header("location: pagina-principal.php");
+                header("location: paginaprincipal.php");
                 exit();
             }else{
-                echo "Senha incorreta!";
+                header("location: paginalogin.php?erro=1");
             }
         }else{
-            echo "E-mail não cadastrado!";
+            header("location: paginalogin.php?erro=2");
         }
     }
 ?>

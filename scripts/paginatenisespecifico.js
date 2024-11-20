@@ -14,29 +14,3 @@ tamanhos.forEach(tamanho => {
         }
     });
 });
-
-
-function iniciarFuncionalidadeCarrinho() {
-    const botaoCompra = document.querySelector('.botao-compra p');
-    const carrinho = document.querySelector('.imagem-carrinho');
-    const contadorItensCarrinho = document.querySelector('.contador-itens-carrinho');
-
-    let contador = 0;
-
-    if (botaoCompra && carrinho && contadorItensCarrinho) {
-        botaoCompra.addEventListener('click', function() {
-            if (tamanhoSelecionado) {
-                carrinho.classList.add('vibrate');
-
-                setTimeout(() => {
-                    carrinho.classList.remove('vibrate');
-                }, 500);
-
-                contador++;
-                contadorItensCarrinho.textContent = contador;
-            } else {
-                alert('Selecione um tamanho antes de comprar!');
-            }
-        });
-    }
-}

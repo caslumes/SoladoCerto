@@ -1,6 +1,18 @@
 <?php
     include("conexao.php");
+
+    require("Carrinho.php");
+    require("Item.php");
+    require("Produto.php");
+
     session_start();
+
+    if(!isset($_SESSION['carrinho'])){
+        $carrinho = new Carrinho;
+        $_SESSION['carrinho'] = $carrinho;
+    }else{
+        $carrinho = $_SESSION['carrinho'];
+    }
 ?>
 
 <section class="secao-esquerda-header-principal">
@@ -10,7 +22,10 @@
 </section>
 
 <section class="secao-meio-header-principal">
-    <input class="pesquisa-header" type="text" placeholder="Pesquise algum tênis"/>
+    <form action="./pesquisa.php" method="get">
+        <input name="busca" class="pesquisa-header" type="text" placeholder="Pesquise algum tênis"/>
+        <button type="submit"></button>
+    </form>
 </section>
 
 <section class="secao-direita-header-principal">
@@ -30,14 +45,14 @@
                 <?php
             }else{
                 ?>
-                <a class="login" href="login.php">Entre ou cadastre-se</a>
+                <a class="login" href="paginalogin.php">Entre ou cadastre-se</a>
                 <?php
             }
         ?>
     </section>
-    <a href="">
+    <a href="paginacarrinho.php">
         <img class="imagem-carrinho" src="./imagens/header/carrinho.png" alt=""/>
-        <span class="contador-itens-carrinho">0</span>
+        <span class="contador-itens-carrinho"><?php echo ($carrinho->getQntTotal() ?? 0) ?></span>
         <!-- Contador de itens -->
     </a>
 </section>

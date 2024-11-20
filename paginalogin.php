@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="./estilos/login.css">
+    <link rel="stylesheet" href="./estilos/header.css">
     <title>SoladoCerto - Página de Cadastro</title>
 </head>
 <body>
+    <header id="header-principal">
+        <section class="secao-esquerda-header-principal">
+            <a class="container-logo" href="paginaprincipal.php">
+                <img class="logo" src="./imagens/header/logo.png" alt="" />
+            </a>
+        </section>
+    </header>
+
+
     <div class="container-login" id="cadastrar" style="display: none;">
         <h1 class="titulo-form">Cadastrar-se</h1>
         <form method="post" action="registrar.php">
@@ -56,6 +68,19 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
                 <label for="senha">Senha</label>
+                <?php if(isset($_GET['erro'])){
+                    $erro = (int) $_GET['erro'];
+                    if($erro === 1){
+                        ?>
+                        <p class="erro">E-mail ou Senha Incorretos</p>
+                        <?php
+                    }else if($erro === 2){
+                        ?>
+                        <p class="erro">E-mail não cadastrado!</p>
+                        <?php
+                    }
+                }
+                ?>
             </div>
             <p class="recuperar">
                 <a href="#">Esqueci minha senha</a>

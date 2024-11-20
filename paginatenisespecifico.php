@@ -28,6 +28,14 @@ if ($resultTamanhos && $resultTamanhos->num_rows > 0) {
         $tamanhos[] = $row['tamanho'];
     }
 }
+
+$urlVoltarCompra = "paginacarrinho.php";
+$urlVoltarAdicionarCarrinho = "paginatenisespecifico.php?codigo=" . $codigoTenis;
+
+if(isset($_GET['erro'])){
+    echo "<script>alert('Selecione um tamanho antes de comprar!')</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -63,20 +71,37 @@ if ($resultTamanhos && $resultTamanhos->num_rows > 0) {
                     ?>
                 </div>
                 <div class="desc">
-                    <p><?php echo htmlspecialchars($tenis['nome']); ?></p>
-                    <p>Código: <?php echo $tenis['codigo']; ?></p>
-                    <p>Valor: R$<?php echo number_format($tenis['valor'], 2, ',', '.'); ?></p>
-                    <p>Tamanho:</p>
+                    <h2><?php echo htmlspecialchars($tenis['nome']); ?></h2>
+                    <h3>Código: <?php echo $tenis['codigo']; ?></h3>
+                    <h3>Valor: R$<?php echo number_format($tenis['valor'], 2, ',', '.'); ?></h3>
+                    <h3>Tamanho:</h3>
                     <div class="tamanhos">
                         <?php
                         foreach ($tamanhos as $tamanho) {
-                            echo "<p>$tamanho</p>";
+                            ?>
+                            <a href="?tamanho=<?php echo $tamanho ?>">
+                                <p <?php if(isset($_GET['tamanho']) && (string) $_GET['tamanho'] === $tamanho){ echo "class=\"selecionado\"";} ?>><?php echo $tamanho ?></p>
+                            </a>
+                            
+                            <?php
                         }
                         ?>
                     </div>
-                    <div class="botao-compra">
-                        <p>Comprar</p>
+                    <div class="container-botoes">
+                        <a class="botao-compra" href="
+                                    adicionarItem.php?id=<?php echo $codigoTenis ?>
+                                    &urlVoltar=<?php echo $urlVoltarCompra ?>
+                                    <?php if(isset($_GET['tamanho'])){ echo "&tamanho=" . $_GET['tamanho'] . "";}?>">
+                            <p>Comprar</p>
+                        </a>
+                        <a class="botao-compra" href="
+                                    adicionarItem.php?id=<?php echo $codigoTenis ?>
+                                    &urlVoltar=<?php echo $urlVoltarAdicionarCarrinho ?>
+                                    <?php if(isset($_GET['tamanho'])){ echo "&tamanho=" . $_GET['tamanho'] . "";}?>">
+                            <p>Adicionar ao carrinho</p>
+                        </a>
                     </div>
+                    
                 </div>
             </article>
         </section>

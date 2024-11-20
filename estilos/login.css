@@ -15,6 +15,7 @@ body{
     width: 450px;
     padding: 1.5rem;
     margin: 50px auto;
+    margin-top: 175px;
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9);
 }
@@ -74,6 +75,10 @@ input:focus~label, input:not(:placeholder-shown)~label{
     top: -3em;
     color: rgb(0, 88, 230);
     font-size: 15px;
+}
+
+.erro{
+    color: red;
 }
 
 .recuperar{

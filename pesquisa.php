@@ -1,6 +1,14 @@
 <?php
     include 'conexao.php';
 
+    if(isset($_GET['busca'])){
+        $busca = strip_tags($_GET['busca']);
+        $tituloPagina = "Pesquisa > \"" . $busca . "\"";
+        $queryTenis = "SELECT * FROM tenis WHERE nome LIKE '%$busca%'";
+    }else{
+        $tituloPagina = "Catálogo";
+        $queryTenis = "SELECT * FROM tenis";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,14 +38,14 @@
     <main class="main-pesquisa-tenis">
         <header class="header-pesquisa-tenis">
             <section class="secao-esquerda-header-pesquisa">
-                <h1>Titulo pagina</h1>
+                <h1><?php echo $tituloPagina ?></h1>
             </section>
         </header>
 
         <section class="secao-pesquisa">
             <aside class="barra-filtros">
                 <div class="filtro">
-                    <p>Nome Filtro</p>
+                    <p>Marca</p>
                     <ul class="submenu-filtro">
                         <li>
                             <input class="pesquisa-opcao" type="text" placeholder="Faça sua busca">
@@ -45,93 +53,28 @@
                         <li>
                             <div class="lista-opcoes">
                                 <div class="opcao-lista">
-                                    <input class="checkbox-opcao" type="checkbox">
-                                    <p>Nome Opção</p>
+                                    <form action="" method="get">
+                                        <input name="opcao1" value="Nike" class="checkbox-opcao" type="checkbox">
+                                    </form>
+                                    <p>Nike</p>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="filtro">
-                    <p>Nome Filtro</p>
-                    <ul class="submenu-filtro">
-                        <li>
-                            <input class="pesquisa-opcao" type="text" placeholder="Faça sua busca">
-                        </li>
-                        <li>
-                            <div class="lista-opcoes">
                                 <div class="opcao-lista">
-                                    <input class="checkbox-opcao" type="checkbox">
-                                    <p>Nome Opção</p>
+                                    <form action="">
+                                        <input name="opcao2" value="Adidas" class="checkbox-opcao" type="checkbox">
+                                    </form>
+                                    <p>Adidas</p>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="filtro">
-                    <p>Nome Filtro</p>
-                    <ul class="submenu-filtro">
-                        <li>
-                            <input class="pesquisa-opcao" type="text" placeholder="Faça sua busca">
-                        </li>
-                        <li>
-                            <div class="lista-opcoes">
                                 <div class="opcao-lista">
-                                    <input class="checkbox-opcao" type="checkbox">
-                                    <p>Nome Opção</p>
+                                    <form action="">
+                                        <input name="opcao3" value="New Balance" class="checkbox-opcao" type="checkbox">
+                                    </form>
+                                    <p>New Balance</p>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="filtro">
-                    <p>Nome Filtro</p>
-                    <ul class="submenu-filtro">
-                        <li>
-                            <input class="pesquisa-opcao" type="text" placeholder="Faça sua busca">
-                        </li>
-                        <li>
-                            <div class="lista-opcoes">
-                                <div class="opcao-lista">
-                                    <input class="checkbox-opcao" type="checkbox">
-                                    <p>Nome Opção</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="filtro">
-                    <p>Nome Filtro</p>
-                    <ul class="submenu-filtro">
-                        <li>
-                            <input class="pesquisa-opcao" type="text" placeholder="Faça sua busca">
-                        </li>
-                        <li>
-                            <div class="lista-opcoes">
-                                <div class="opcao-lista">
-                                    <input class="checkbox-opcao" type="checkbox">
-                                    <p>Nome Opção</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="filtro">
-                    <p>Nome Filtro</p>
-                    <ul class="submenu-filtro">
-                        <li>
-                            <input class="pesquisa-opcao" type="text" placeholder="Faça sua busca">
-                        </li>
-                        <li>
-                            <div class="lista-opcoes">
-                                <div class="opcao-lista">
-                                    <input class="checkbox-opcao" type="checkbox">
-                                    <p>Nome Opção</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <button type="submit">Aplicar Filtros</button>
             </aside>
     
             <section class="secao-tenis">
@@ -149,28 +92,33 @@
                                 
                 <section class="grid-tenis">
                 <?php
-                    $queryTenis = "SELECT * FROM tenis";
                     $rsTenis = $mysqli->query($queryTenis);
 
-                    while($tenis = $rsTenis->fetch_assoc()){
-                        $codigoTenis = $tenis['codigo'];
-                        $valorTenis = $tenis['valor'];
-                        $queryImg = "SELECT * FROM imagens WHERE codigoTenis = $codigoTenis";
+                    if($rsTenis->num_rows > 0){
+                        while($tenis = $rsTenis->fetch_assoc()){
+                            $codigoTenis = $tenis['codigo'];
+                            $valorTenis = $tenis['valor'];
+                            $queryImg = "SELECT * FROM imagens WHERE codigoTenis = $codigoTenis";
 
-                        $rsImg = $mysqli->query($queryImg);
-                        $imagem = $rsImg->fetch_assoc();
+                            $rsImg = $mysqli->query($queryImg);
+                            $imagem = $rsImg->fetch_assoc();
+                            ?>
+                            <div class="item-grid">
+                                <a class="container-tenis" href="paginatenisespecifico.php?codigo=<?php echo $codigoTenis ?>">
+                                    <img class="imagem-preview-tenis" src="<?php echo $imagem['urlImg'] ?>" alt="">
+                                    <div class="infos-tenis">
+                                        <p class="nome-tenis"><?php echo $tenis['nome'] ?></p>
+                                        <p>A partir de:</p>
+                                        <p class="preco">R$<?php echo number_format($valorTenis, 2, ",", ".") ?></p>
+                                        <p>ou 12x de R$<?php echo number_format($valorTenis/12, 2, ",", ".") ?></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <?php
+                        }
+                    }else{
                         ?>
-                        <div class="item-grid">
-                            <a class="container-tenis" href="paginatenisespecifico.php?codigo=<?php echo $codigoTenis ?>">
-                                <img class="imagem-preview-tenis" src="<?php echo $imagem['urlImg'] ?>" alt="">
-                                <div class="infos-tenis">
-                                    <p class="nome-tenis"><?php echo $tenis['nome'] ?></p>
-                                    <p>A partir de:</p>
-                                    <p class="preco">R$<?php echo number_format($valorTenis, 2, ",", ".") ?></p>
-                                    <p>ou 12x de R$<?php echo number_format($valorTenis/12, 2, ",", ".") ?></p>
-                                </div>
-                            </a>
-                        </div>
+                        <p>Nenhum item corresponde a sua pesquisa.</p>
                         <?php
                     }
                 ?>
