@@ -12,9 +12,7 @@
 
     $createDB = "CREATE DATABASE IF NOT EXISTS $dbname";
 
-    if($conn->query($createDB) === TRUE){
-        echo "Database '$dbname' criada com sucesso!";
-    }else{
+    if($conn->query($createDB) === FALSE){
         echo "Erro ao criar database: " . $conn->error;
     }
 
@@ -59,9 +57,7 @@
         );
     ";
 
-    if($conn->multi_query($createTables) === TRUE){
-        echo "Tabelas criadas com sucesso!";
-    }else{
+    if($conn->multi_query($createTables) === FALSE){
         echo "Erro ao criar tabelas: " . $conn->error;
     }
 
