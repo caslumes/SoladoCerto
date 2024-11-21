@@ -79,7 +79,7 @@ if(isset($_GET['erro'])){
                         <?php
                         foreach ($tamanhos as $tamanho) {
                             ?>
-                            <a href="?tamanho=<?php echo $tamanho ?>">
+                            <a href="?codigo=<?php echo $tenis['codigo'] ?>&tamanho=<?php echo $tamanho ?>">
                                 <p <?php if(isset($_GET['tamanho']) && (string) $_GET['tamanho'] === $tamanho){ echo "class=\"selecionado\"";} ?>><?php echo $tamanho ?></p>
                             </a>
                             
