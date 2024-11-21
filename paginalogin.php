@@ -1,4 +1,9 @@
-
+<?php
+    $erro = 0;
+    if(isset($_GET['erro'])){
+        $erro = (int) $_GET['erro'];
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +50,12 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
                 <label for="senha">Senha</label>
+                <?php if($erro === 1){
+                    ?>
+                    <p class="erro">E-mail já cadastrado!</p>
+                    <?php
+                }
+                ?>
             </div>
             <input type="submit" class="botao" value="Cadastrar-se" name="cadastrar">
         </form>
@@ -68,17 +79,14 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
                 <label for="senha">Senha</label>
-                <?php if(isset($_GET['erro'])){
-                    $erro = (int) $_GET['erro'];
-                    if($erro === 1){
-                        ?>
-                        <p class="erro">E-mail ou Senha Incorretos</p>
-                        <?php
-                    }else if($erro === 2){
-                        ?>
-                        <p class="erro">E-mail não cadastrado!</p>
-                        <?php
-                    }
+                <?php if($erro === 1){
+                    ?>
+                    <p class="erro">E-mail ou senha incorretos</p>
+                    <?php
+                }else if($erro === 2){
+                    ?>
+                    <p class="erro">E-mail não cadastrado!</p>
+                    <?php
                 }
                 ?>
             </div>

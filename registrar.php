@@ -12,7 +12,7 @@
         $rs = $mysqli->query($verificarEmail);
 
         if($rs->num_rows > 0){
-            echo "Endereço de E-mail já cadastrado!";
+            header("location: paginalogin.php?erro=3");
         }else{
             $inserir = "INSERT INTO usuarios(nome, sobrenome, email, senha)
                         VALUES('$nome', '$sobrenome', '$email', '$senha')";
