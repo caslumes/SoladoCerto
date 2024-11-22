@@ -51,13 +51,13 @@
                         <div class="container-desc-item">
                             <div class="container-info-produto">
                                 <h3><?php echo $itemCarrinho->getNomeProduto()?></h3>
-                                <p>Tamanho</p>
+                                <p>Tamanho: <?php echo $itemCarrinho->getTamanhoProduto()?></p>
                             </div>
                             <div class="container-qtd-produto">
-                                <a href="removerItem.php?id=<?php echo $itemCarrinho->getIdProduto()?>
+                                <a href="removerItem.php?id=<?php echo $itemCarrinho->getIdProduto()?>&tamanho=<?php echo $itemCarrinho->getTamanhoProduto()?>
                                 &urlVoltar=<?php echo $urlVoltar ?>"><img class="icone" src="./icones/remover.png" alt=""></a>
                                 <h3><?php echo $itemCarrinho->getQnt() ?></h3>
-                                <a href="adicionarItem.php?id=<?php echo $itemCarrinho->getIdProduto()?>
+                                <a href="adicionarItem.php?id=<?php echo $itemCarrinho->getIdProduto()?>&tamanho=<?php echo $itemCarrinho->getTamanhoProduto()?>
                                 &urlVoltar=<?php echo $urlVoltar ?>"><img class="icone" src="./icones/adicionar.png" alt=""></a>
                             </div>
                             <h4>R$<?php echo number_format($itemCarrinho->getQnt() * $itemCarrinho->getValorProduto(), 2, ",", ".") ?></h4>

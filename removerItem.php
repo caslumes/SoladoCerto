@@ -8,7 +8,8 @@
     $carrinho = $_SESSION['carrinho'];
 
     $id = (int) strip_tags($_GET['id']);
-    $produto = new Produto($id);
+    $tamanho = (int) $_GET['tamanho'];
+    $produto = new Produto($id, $tamanho);
     $carrinho->remover($produto);
 
     header("location: " . $_GET['urlVoltar']);

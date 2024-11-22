@@ -3,10 +3,12 @@
     class Item{
         private Produto $produto;
         private int $qnt;
+        private int $tamanho;
     
-        public function __construct($produto)
+        public function __construct($produto, $tamanho)
         {
             $this->produto = $produto;
+            $this->tamanho = $tamanho;
             $this->qnt = 1;
         }
 
@@ -34,5 +36,8 @@
             return $this->qnt;
         }
 
+        public function getTamanhoProduto(){
+            return $this->tamanho;
+        }
     }
 ?>

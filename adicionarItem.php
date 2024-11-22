@@ -10,7 +10,8 @@
     $id = (int) strip_tags($_GET['id']);
 
     if(isset($_GET['tamanho'])){
-        $produto = new Produto($id);
+        $tamanho = (int) $_GET['tamanho'];
+        $produto = new Produto($id, $tamanho);
         $carrinho->adicionar($produto);
         header("location: " . $_GET['urlVoltar']);
     }else{

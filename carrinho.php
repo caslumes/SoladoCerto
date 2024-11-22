@@ -5,18 +5,18 @@
 
         public function adicionar(Produto $produto){
             foreach($this->itens as $itemCarrinho){
-                if($itemCarrinho->getIdProduto() === $produto->getId()){
+                if($itemCarrinho->getIdProduto() === $produto->getId() && $itemCarrinho->getTamanhoProduto() === $produto->getTamanho()){
                     $itemCarrinho->setQnt($itemCarrinho->getQnt() + 1);
                     return;
                 }
             }
 
-            $this->itens[] = new Item($produto);
+            $this->itens[] = new Item($produto, $produto->getTamanho());
         }
 
         public function remover(Produto $produto){
             foreach($this->itens as $index => $itemCarrinho){
-                if($itemCarrinho->getIdProduto() === $produto->getId()){
+                if($itemCarrinho->getIdProduto() === $produto->getId() && $itemCarrinho->getTamanhoProduto() === $produto->getTamanho()){
                     $itemCarrinho->setQnt($itemCarrinho->getQnt() - 1);
                     if($itemCarrinho->getQnt() === 0){
                         unset($this->itens[$index]);

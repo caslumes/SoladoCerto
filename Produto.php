@@ -5,9 +5,10 @@
         private string $nome;
         private float $valor;
         private string $desc;
+        private int $tamanho;
         private string $urlImg;
 
-        public function __construct(int $id)
+        public function __construct(int $id, int $tamanho)
         {
             $this->id = $id;
 
@@ -20,6 +21,8 @@
             $this->nome = $tenis['nome'];
             $this->valor = $tenis['valor'];
             $this->desc = $tenis['descricao'];
+
+            $this->tamanho = $tamanho;
 
             $queryImg = "SELECT urlImg FROM imagens WHERE codigoTenis = $id";
             $rsImg = $mysqli->query($queryImg);
@@ -46,6 +49,10 @@
 
         public function getUrlImg(){
             return $this->urlImg;
+        }
+
+        public function getTamanho(){
+            return $this->tamanho;
         }
     }
 
