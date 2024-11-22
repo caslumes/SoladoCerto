@@ -30,11 +30,11 @@
         (5, './imagens/imgstenis/imagemNewBalance2.png');
     ";
 
-    if($conn->multi_query($inserirDados) == TRUE){
+    if($mysqli->multi_query($inserirDados) == TRUE){
         echo "Dados inseridos com sucesso!";
     }else{
         echo "Erro ao inserir dados: " . $conn->error;
     }
 
-    $conn->close();
+    $mysqli->close();
 ?>
