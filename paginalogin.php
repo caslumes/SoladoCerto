@@ -50,12 +50,6 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
                 <label for="senha">Senha</label>
-                <?php if($erro === 1){
-                    ?>
-                    <p class="erro">E-mail já cadastrado!</p>
-                    <?php
-                }
-                ?>
             </div>
             <input type="submit" class="botao" value="Cadastrar-se" name="cadastrar">
         </form>
@@ -86,6 +80,10 @@
                 }else if($erro === 2){
                     ?>
                     <p class="erro">E-mail não cadastrado!</p>
+                    <?php
+                }if($erro === 3){
+                    ?>
+                    <p class="erro">E-mail já cadastrado!</p>
                     <?php
                 }
                 ?>

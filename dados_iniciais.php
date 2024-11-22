@@ -8,15 +8,29 @@
         (2, 'Nike Air Force 1 Branco', 799.99, 'Nike Air Force 1, clássico do streetwear com durabilidade e visual clean.'),
         (3, 'Adidas Campus 00s Cinza', 699.99, 'Adidas Campus 00s, estilo atemporal e conforto para qualquer ocasião.'),
         (4, 'Nike Dunk Low Retro', 899.99, 'Nike Dunk Low Retro, visual clean e durabilidade com sola de borracha.'),
-        (5, 'New Balance 9060', 1199.99, 'New Balance 9060, design futurista e conforto com entressola ABZORB.');
+        (5, 'New Balance 9060', 1199.99, 'New Balance 9060, design futurista e conforto com entressola ABZORB.');";
 
+    if($mysqli->multi_query($inserirDados) == TRUE){
+        echo "Dados inseridos com sucesso!";
+    }else{
+        echo "Erro ao inserir dados: " . $mysqli->error;
+    }
+
+    $inserirDados = "
         INSERT INTO tamanhos (codigoTenis, tamanho, qtdEstoque) VALUES
         (1, 39, 2), (1, 40, 2), (1, 41, 2), (1, 42, 2), (1, 43, 2),
         (2, 39, 2), (2, 40, 2), (2, 41, 2), (2, 42, 2), (2, 43, 2),
         (3, 39, 2), (3, 40, 2), (3, 41, 2), (3, 42, 2), (3, 43, 2),
         (4, 39, 2), (4, 40, 2), (4, 41, 2), (4, 42, 2), (4, 43, 2),
-        (5, 39, 2), (5, 40, 2), (5, 41, 2), (5, 42, 2), (5, 43, 2);
+        (5, 39, 2), (5, 40, 2), (5, 41, 2), (5, 42, 2), (5, 43, 2);";
 
+    if($mysqli->multi_query($inserirDados) == TRUE){
+        echo "Dados inseridos com sucesso!";
+    }else{
+        echo "Erro ao inserir dados: " . $mysqli->error;
+    }
+
+    $inserirDados = "
         INSERT INTO imagens (codigoTenis, urlImg) VALUES
         (1, './imagens/imgstenis/imagemJordan1.png'),
         (1, './imagens/imgstenis/imagemJordan2.png'),
@@ -33,7 +47,7 @@
     if($mysqli->multi_query($inserirDados) == TRUE){
         echo "Dados inseridos com sucesso!";
     }else{
-        echo "Erro ao inserir dados: " . $conn->error;
+        echo "Erro ao inserir dados: " . $mysqli->error;
     }
 
     $mysqli->close();

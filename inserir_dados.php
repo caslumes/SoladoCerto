@@ -39,14 +39,7 @@
 
     $inserirDados = "
         INSERT INTO tenis (codigo, nome, valor, descricao) VALUES
-        (" . $codigo . ", '" . $nome . "', " . $valor . ", '" . $descricao . "');
-
-        INSERT INTO tamanhos (codigoTenis, tamanho, qtdEstoque) VALUES
-        " . $stringQueryTamanhos . "
-
-        INSERT INTO imagens (codigoTenis, urlImg) VALUES
-        " . $stringQueryImagens . "
-    ";
+        (" . $codigo . ", '" . $nome . "', " . $valor . ", '" . $descricao . "');";
 
     if($conn->multi_query($inserirDados) == TRUE){
         echo "Dados inseridos com sucesso!";
@@ -54,5 +47,26 @@
         echo "Erro ao inserir dados: " . $conn->error;
     }
 
-    $conn->close();
+    $inserirDados= "
+        INSERT INTO tamanhos (codigoTenis, tamanho, qtdEstoque) VALUES
+        " . $stringQueryTamanhos;
+    
+    if($conn->multi_query($inserirDados) == TRUE){
+        echo "Dados inseridos com sucesso!";
+    }else{
+        echo "Erro ao inserir dados: " . $conn->error;
+    }
+
+    $inserirDados = "
+        INSERT INTO imagens (codigoTenis, urlImg) VALUES
+        " . $stringQueryImagens . "
+    ";
+
+    if($mysqli->multi_query($inserirDados) == TRUE){
+        echo "Dados inseridos com sucesso!";
+    }else{
+        echo "Erro ao inserir dados: " . $mysqli->error;
+    }
+
+    $mysqli->close();
 ?>
