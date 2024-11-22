@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="./estilos/paginainserirtenis.css" rel="stylesheet">
 </head>
 <body>
     <form id="inserir" action="inserir_dados.php" method="get" onsubmit="return validateForm(event)">
@@ -21,8 +22,9 @@
 
     <script>
         function addNewInput(input) {
+            const container = document.getElementById("container-tamanhos");
+            const inputs = container.querySelectorAll("input[name='tamanhos[]']");
             if (input.value.trim() !== "" && !input.nextElementSibling) {
-                container = document.getElementById('container-tamanhos');
                 const newInput = document.createElement('input');
                 newInput.type = 'text';
                 newInput.name = 'tamanhos[]';
@@ -32,8 +34,14 @@
                 };
 
                 container.appendChild(newInput);
+            }
+            if (inputs.length > 1) {
+                const penultimoInput = inputs[inputs.length - 2];
+                const ultimoInput = inputs[inputs.length - 1];
 
-                input.parentNode.parentNode.appendChild(container);
+                if (penultimoInput.value.trim() === "" && input === penultimoInput) {
+                    container.removeChild(ultimoInput);
+                }
             }
         }
 
