@@ -1,8 +1,8 @@
 <?php
- $hostname = "localhost";
- $bancodedados = "soladocerto";
- $usuario = "root";
- $senha = "";
+ $hostname = "sql10.freesqldatabase.com";
+ $bancodedados = "sql10790258";
+ $usuario = "sql10790258";
+ $senha = "qVv5PYybry";
 
  $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
 
