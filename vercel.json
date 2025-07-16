@@ -5,15 +5,15 @@
         }
     },
     "routes": [
-    { "src": "/estilos/carrinho.css", "dest": "/api/estilos/carrinho.css" },
-    { "src": "/estilos/footer.css", "dest": "/api/estilos/footer.css" },
-    { "src": "/estilos/header.css", "dest": "/api/estilos/header.css" },
-    { "src": "/estilos/login.css", "dest": "/api/estilos/login.css" },
-    { "src": "/estilos/paginadeajuda.css", "dest": "/api/estilos/paginadeajuda.css" },
-    { "src": "/estilos/paginadecontato.css", "dest": "/api/estilos/paginadecontato.css" },
-    { "src": "/estilos/paginainserirtenis.css", "dest": "/api/estilos/paginainserirtenis.css" },
-    { "src": "/estilos/paginaprincipal.css", "dest": "/api/estilos/paginaprincipal.css" },
-    { "src": "/estilos/paginatenisespecifico.css", "dest": "/api/estilos/paginatenisespecifico.css" },
-    { "src": "/estilos/pesquisa.css", "dest": "/api/estilos/pesquisa.css" },
-    { "src": "/scripts/geral.js", "dest": "/api/scripts/geral.js" }]
+    { "src": "/estilos/carrinho.css", "dest": "/estilos/carrinho.css" },
+    { "src": "/estilos/footer.css", "dest": "/estilos/footer.css" },
+    { "src": "/estilos/header.css", "dest": "/estilos/header.css" },
+    { "src": "/estilos/login.css", "dest": "/estilos/login.css" },
+    { "src": "/estilos/paginadeajuda.css", "dest": "/estilos/paginadeajuda.css" },
+    { "src": "/estilos/paginadecontato.css", "dest": "/estilos/paginadecontato.css" },
+    { "src": "/estilos/paginainserirtenis.css", "dest": "/estilos/paginainserirtenis.css" },
+    { "src": "/estilos/paginaprincipal.css", "dest": "/estilos/paginaprincipal.css" },
+    { "src": "/estilos/paginatenisespecifico.css", "dest": "/estilos/paginatenisespecifico.css" },
+    { "src": "/estilos/pesquisa.css", "dest": "/estilos/pesquisa.css" },
+    { "src": "/scripts/geral.js", "dest": "/scripts/geral.js" }]
 }
